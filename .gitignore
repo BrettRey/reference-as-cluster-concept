@@ -11,5 +11,8 @@
 *.fls
 *.synctex.gz
 
+# Worktrees
+.worktrees/
+
 # macOS
 .DS_Store
