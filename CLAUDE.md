@@ -4,145 +4,83 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an academic research paper titled "vector-grounding-problem_response" by Brett Reynolds.
+A reply paper to Coelho Mollo & Milliere (2026) "The Vector Grounding Problem" (PhiMiSci). The reply argues that referential grounding should be modeled as a graded cluster property (a "groundedness profile") rather than a binary grounded/ungrounded verdict. Teleosemantic selection history is one central stabilizer among others (communicative calibration, inferential role, etc.).
 
-## Build System
+**Target venue:** Philosophy and AI journals (PhiMiSci, Synthese, Philosophy & Technology). Venue not yet locked.
 
-This LaTeX project requires **XeLaTeX** (not pdfLaTeX) due to the Charis SIL font requirement.
+**Companion paper:** `hpc_to_vector` (general HPC/SPC-to-embedding framework). This reply is narrower: it intervenes in the VGP debate specifically and doesn't build a full ontology of embedding spaces.
 
-**Avoid LuaLaTeX** – it tends to run words together in the underlying PDF text layer, breaking copy-paste and accessibility.
+## Current State
 
-### Compilation Commands
+`main.tex` is the template skeleton (all TODOs). No prose drafted yet. The groundwork docs in `docs/groundwork/` are well developed and should be consulted before drafting any section.
+
+## Build
 
 ```bash
-# Full build sequence
-xelatex main.tex
-biber main
-xelatex main.tex
-xelatex main.tex
-
-# Or use automated build
-make              # Full build
-make quick        # Single pass
-make clean        # Clean artifacts
+make              # Full build (xelatex + biber + 2x xelatex)
+make quick        # Single xelatex pass
+make clean        # Remove artifacts, keep PDF
 ```
 
-The multiple runs are necessary to resolve all cross-references and citations.
+Requires XeLaTeX (not pdfLaTeX or LuaLaTeX) for Charis SIL font.
 
-## File Structure
+## Intellectual Architecture
 
-```
-vector-grounding-problem_response/
-├── main.tex                  # Main document
-├── references.bib            # Bibliography
-├── .house-style/             # House style snapshot
-│   ├── preamble.tex         # LaTeX preamble
-│   └── style-rules.yaml     # Style conventions
-├── Makefile                  # Build automation
-├── CLAUDE.md                 # This file
-├── AGENTS.md                 # Synced with this file
-└── GEMINI.md                 # Synced with this file
-```
+The paper's argument runs through six pressure points mapped in `docs/groundwork/06-claim-evidence-matrix.md`:
 
-## House Style
+1. **Intro:** VGP as extra-linguistic aboutness for vector systems (Harnad 1990 lineage)
+2. **Taxonomy:** Grounding notions are distinguishable and non-equivalent (referential, relational, communicative, epistemic)
+3. **Core move:** Referential grounding as graded profile, not binary
+4. **Communicative mechanism:** Social calibration as stabilizer (Clark & Wilkes-Gibbs 1986, Putnam 1975)
+5. **Octopus reassessment:** Bender & Koller's test is regime-sensitive, not decisive
+6. **Debate positioning:** Narrows elimination claims without rejecting teleosemantics
 
-This project uses Brett Reynolds house style (see `.house-style/style-rules.yaml`).
+Key objections and planned responses: `docs/groundwork/05-objection-matrix.md`
 
-### Key LaTeX Conventions
+## Groundwork System
 
-**Terms, Mentions, Quotations:**
-- Use `\term{}` for terms/concepts (small caps): `\term{definiteness}`
-- Use `\mention{}` for mentions/forms (italics): `\mention{the}`
-- Use `\olang{}` for object language (italics): `\olang{der Hund}`
-- Use `\enquote{}` for quotations: `\enquote{actual quote}`
-- Never use raw quotes for mention
+Before drafting any section, consult these (in `docs/groundwork/`):
 
-**Cross-linguistic Notation:**
-- Cross-linguistic: `\textsc{subject}\crossmark`
-- Language-specific: `\textsc{subject}\textsubscript{eng}`
+| File | Purpose |
+|------|---------|
+| `03-definitions-sheet.md` | Fixed term definitions; lock before drafting |
+| `05-objection-matrix.md` | Objections, strongest sources, planned responses |
+| `06-claim-evidence-matrix.md` | Section-by-section claim support with citekeys |
+| `02-quote-bank.md` | Verified verbatim quotes with page anchors |
+| `01-citation-ledger.md` | Source-level citation log; track page-level evidence |
+| `04-contribution-boundary.md` | What this paper does/doesn't do vs `hpc_to_vector` |
+| `08-structured-abstract.md` | Abstract scaffold |
 
-**Dashes:**
-- Parenthetical: `foo~-- bar~-- baz` (en dash with spaces)
-- Ranges: `2001--2025` (en dash, no spaces)
-- Compounds: `corpus-based` (hyphen)
+Source notes for individual papers: `docs/source-notes/` (see `INDEX.md` for reading order).
 
-**Citations:**
-- Parenthetical: `\citep{key}`
-- Textual: `\textcite{key}`
+## Key Terminology
 
-**Citations and BibTeX (LAW):**
-- Citations and BibTeX entries must NEVER be placeholders
-- Citations must NEVER be generated from training data
-- LLMs MUST browse the web to find DOIs and verify bibliographic data
-- Every citation must be confirmed against an authoritative source
-- If you cannot verify a citation, say so. Do not guess. Do not fabricate.
+These definitions (from `03-definitions-sheet.md`) must be used consistently:
 
-### Writing Style
+- **Vector Grounding Problem:** How embeddings could acquire extra-linguistic reference without interpreter dependence
+- **Referential grounding:** Representational states connected to worldly entities under correctness conditions
+- **Relational grounding:** Intra-representational linkage (vector-to-vector) without direct referential anchoring
+- **Communicative grounding:** Coordination/calibration in dialogue for shared usage and repair
+- **Groundedness profile:** Degree-profile across multiple stabilizers (this paper's novel framing)
+- **Teleosemantic function:** Success/failure norms from selection history and proper function
 
-**Preferred:**
-- Use contractions (don't, won't)
-- Keep paragraphs ~60 words, max 100
-- Direct verbs and short clauses
-- Concrete before abstract
+## Bibliography
 
-**Avoid:**
-- Throat-clearers: "It is important to note that..."
-- `\paragraph{}` headings (use topic sentences)
-- Bold labels in prose
-- Hackneyed adverbs: moreover, furthermore
+11 entries in `references.bib`, all grounded against local PDFs. The citation ledger (`01-citation-ledger.md`) tracks page-level evidence status. All entries are currently TODO for page anchors.
 
-**Document Structure:**
-- Use `\section{}` and `\subsection{}` only
-- Avoid bullet points for arguments (use prose)
-- Use ordinal markers: "first," "second," "third"
+Local PDFs live in `literature/` (project-local) and `../../literature/` (portfolio-level).
 
-**Examples (gb4e):**
-```latex
-\ea\label{ex:example}
-\textit{Example sentence.}
-\z
-```
+## House Style and Source Grounding
 
-## Common Tasks
+LaTeX conventions, writing style, and source-grounding rules load automatically via `.claude/rules/`. Run `/check-style` after editing `.tex` files. The critical rules for this project:
 
-**Adding References:**
-1. Add entry to `references.bib`
-2. Protect capitals: `title = {The {Cambridge} Grammar...}`
-3. Use `\textcite{key}` or `\citep{key}`
+- **Source grounding (LAW):** Read PDFs before citing. No statistics, quotes, or claims from memory.
+- **Rapoport's Rules:** This is a reply paper. Restate Coelho Mollo & Milliere's position charitably before criticizing.
 
-**Building:**
-```bash
-make              # Full build
-make quick        # Fast build
-make clean        # Clean up
-```
+## Multi-Agent Dispatch
 
-**Git Workflow:**
-- Pre-commit hook keeps CLAUDE.md, AGENTS.md, GEMINI.md synced
-- Commit often with meaningful messages
-- Build before committing to ensure no LaTeX errors
+Before dispatching multiple agents, ask Brett which model(s) and whether redundant outputs are wanted. CLI patterns are in `.claude/rules/multi-model-dispatch.md`.
 
-## Multi-Agent Dispatch (MANDATORY)
+## Git
 
-**Before dispatching multiple agents, ALWAYS ask Brett:**
-
-1. **Which model(s)?** Options: Claude, Codex, Gemini, Copilot
-   - Codex is often best for Brett's work
-   - Claude has the smallest context window
-   - Different models have different strengths
-
-2. **Redundant outputs?** Should multiple models tackle the same task?
-   - Useful for judgment calls (e.g., "Should I add this figure?")
-   - Not needed for factual tasks
-
-### CLI Command Patterns
-
-| CLI | Command | Notes |
-|-----|---------|-------|
-| **Codex** | `codex -p 'prompt' > output.txt &` | Include "Read [PATH] first" in prompt |
-| **Gemini** | `cat file.tex \| gemini --yolo -o text 'prompt'` | Must pipe content (file reading broken in YOLO) |
-| **Copilot** | `copilot -p 'prompt' > output.txt &` | Fast; add `--allow-all-tools` for file ops |
-
-**Token limits:** Gemini > Codex > Claude (most constrained)
-
-See portfolio `CLAUDE.md` or `HPC book/.agent/workflows/multi-agent-review.md` for full patterns.
+Pre-commit hook syncs CLAUDE.md, AGENTS.md, GEMINI.md. Build before committing.

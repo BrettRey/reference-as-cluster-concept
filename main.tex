@@ -4,11 +4,13 @@
 \input{.house-style/preamble.tex}
 
 % Update PDF metadata
+% TODO: Update pdftitle once title is locked.
 \hypersetup{
-  pdftitle={vector-grounding-problem_response}
+  pdftitle={Groundedness Profiles: A Reply to Coelho Mollo and Millière}
 }
 
-\title{vector-grounding-problem_response}
+% TODO: Lock title.
+\title{Groundedness Profiles: A Reply to Coelho Mollo and Milli\`ere}
 \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
 \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
 Humber Polytechnic \& University of Toronto}
@@ -18,28 +20,173 @@ Humber Polytechnic \& University of Toronto}
 \maketitle
 
 \begin{abstract}
-TODO: Write abstract here.
+TODO: Write abstract (max 200 words per PhiMiSci guidelines).
 \end{abstract}
 
 \section{Introduction}
+\label{sec:intro}
 
-TODO: Write introduction here.
+\textcite{coelho_mollo_milliere_2026_vector_grounding_problem} pose the Vector Grounding Problem: how can the internal states of large language models acquire extra-linguistic reference without depending on an external interpreter? The question descends from \textcite{harnad_1990_symbol_grounding_problem}'s Symbol Grounding Problem but targets vector representations rather than symbolic ones, and it arrives at a more optimistic verdict.
 
-\section{Background}
+Their answer draws on teleosemantics. Referential grounding obtains, they argue, when a system's internal states satisfy two conditions: \enquote{(1) they stand in appropriate causal-informational relations to the world, and (2) they have a history of selection that has endowed them with the function of carrying this information} \citep[1]{coelho_mollo_milliere_2026_vector_grounding_problem}. LLMs can meet both, they contend, even without multimodality or embodiment, because training regimes select for states that track worldly features.
 
-TODO: Add background section.
+This is a productive contribution, and it's worth being explicit about what it gets right. The taxonomy of grounding notions~-- referential, sensorimotor, relational, communicative, epistemic~-- clarifies a debate that routinely conflates distinct demands. Separating referential from relational grounding, in particular, blocks a common slide from rich internal structure to genuine aboutness.
 
-\section{Analysis}
+The teleosemantic framing is equally important. Correctness conditions aren't optional but constitutive of genuine reference, and \textcite{coelho_mollo_milliere_2026_vector_grounding_problem} show that training-regime selection can play the functional role of biological selection in classical teleosemantics. That insight~-- that the relevant notion of selection history extends to gradient-based optimization~-- is one this reply preserves and builds on. Before engaging with this paper, I wouldn't have seen how gradient-based optimization could play the teleosemantic role of natural selection. Their argument changed my mind, and this reply takes that insight as given.
 
-TODO: Add analysis section.
+The two conditions already contain the resources for a graded analysis~-- \textcite{coelho_mollo_milliere_2026_vector_grounding_problem} distinguish stronger and weaker routes, allow domain-specific grounding, and treat mediation as a matter of degree. But the graded structure remains implicit. This reply makes it explicit by decomposing groundedness into identifiable dimensions and showing that their co-occurrence is \term{projectible}~-- that knowing where a system sits on some dimensions predicts its referential reliability along others. A phenomenon where partial stabilization is empirically common calls for degree structure, not threshold structure~-- and homeostatic property cluster (HPC) theory provides the right tools. Teleosemantic selection history, communicative calibration, inferential-role structure, and causal-informational coupling each contribute to a system's \term{groundedness profile}. These dimensions can come apart, and the pattern of co-occurrence supports prediction: a system's training regime and deployment context tell you what to expect from it.
 
-\section{Discussion}
+This reply develops that reframing. Section~\ref{sec:target} reconstructs the target argument and its taxonomy. Section~\ref{sec:profiles} introduces the groundedness-profile framework. Section~\ref{sec:calibration} examines communicative calibration as a stabilizing mechanism. Section~\ref{sec:octopus} revisits the octopus test. Section~\ref{sec:adjacent} positions the reply against adjacent accounts. Section~\ref{sec:conclusion} concludes.
 
-TODO: Add discussion.
+\section{The target argument}
+\label{sec:target}
+
+\textcite{coelho_mollo_milliere_2026_vector_grounding_problem} distinguish five notions of grounding that circulate in debates about meaning in biological and artificial systems: \term{referential}, \term{sensorimotor}, \term{relational}, \term{communicative}, and \term{epistemic}. The distinctions are worth rehearsing because the reply developed here depends on them (for a complementary taxonomy, see \citealt{pavlick_2023_symbols_and_grounding_llms}).
+
+\term{Referential grounding} connects representations to worldly entities and properties~-- it's what makes a representation \emph{about} something. \term{Sensorimotor grounding} ties representations to sensory or motor states, either by linking them to sensorimotor representations within a cognitive system or by requiring direct causal contact between transducers and the world.
+
+\term{Relational grounding} locates meaning in intra-system relations: a word's content is partly determined by its inferential and distributional connections to other words. \term{Communicative grounding} is the coordination process by which interlocutors calibrate shared usage in dialogue. And \term{epistemic grounding} connects expressions to structured knowledge bases.
+
+The paper's central taxonomic move is an elimination argument. Sensorimotor contact, they argue, either collapses into referential grounding (causal contact with the world is one component of referential anchoring) or merely postpones the problem (linking a representation to another representation doesn't explain how either connects to the world).
+
+Relational grounding can't escape the representational merry-go-round: however rich the inferential structure, it doesn't by itself yield world-directed correctness conditions~-- except perhaps for a narrow class of logical connectives whose content is exhausted by their formal role \citep[9--10]{coelho_mollo_milliere_2026_vector_grounding_problem}. Communicative and epistemic grounding face analogous difficulties. Only referential grounding directly addresses how representations hook onto the world.
+
+With the field narrowed, the paper draws on theories of representational content~-- particularly the teleosemantic tradition developed by \textcite{millikan_2017_beyond_concepts}, \textcite{neander_2017_mark_of_mental}, and \textcite{shea_2018_representation}~-- to specify two conditions. First, a system's internal states must stand in appropriate \term{causal-informational relations} to the world: they must carry information about worldly entities because of causal connections~-- however mediated~-- between those entities and the system. Second, the states must have a \term{selection history} that has endowed them with the function of carrying this information. The second condition supplies normativity. Without it, any causal correlation would trivially count as representation. Selection history explains why some information-carrying states are representations and others aren't: representations were selected \emph{for} their information-carrying role, and can therefore succeed or fail~-- they can misrepresent \citep[11--12]{coelho_mollo_milliere_2026_vector_grounding_problem}.
+
+When the paper applies these conditions to LLMs, two features of the application deserve emphasis. First, the scope is explicitly limited: the paper doesn't claim that LLMs understand language, possess beliefs, or have cognitive capacities more broadly. The sole contention is that LLM internal states can satisfy conditions for referential grounding, making their outputs intrinsically meaningful in a specific technical sense.
+
+Second, the causal-informational relations needn't be direct. LLMs access the world through training data produced by humans whose linguistic activity bears the causal imprint of worldly interaction. This is analogous, they argue, to how humans acquire referentially grounded representations through testimony and social learning rather than exclusively through direct perception \citep[13--14]{coelho_mollo_milliere_2026_vector_grounding_problem}. Importantly, the paper already distinguishes stronger and weaker grounding routes: post-training fine-tuning against human preferences provides firmer selection history than pre-training on next-token prediction, and in-context learning is weaker still. The framework, in other words, already contains the resources for a graded analysis. The present reply operationalizes that graded structure.
+
+\section{Groundedness as a cluster property}
+\label{sec:profiles}
+
+\subsection{From threshold to profile}
+\label{sec:threshold-to-profile}
+
+The taxonomy, the elimination argument, and the teleosemantic framing are all well-motivated. The two conditions already admit of degrees, as \textcite{coelho_mollo_milliere_2026_vector_grounding_problem} acknowledge. What I want to do is make that degree structure explicit~-- to ask not just whether the conditions are satisfied but \emph{how robustly}, and by what mechanisms.
+
+Consider the conditions individually. Causal-informational relations admit of degrees. \textcite{coelho_mollo_milliere_2026_vector_grounding_problem} themselves emphasize that LLMs' causal connections to the world are mediated~-- through human linguistic production, through causal chains linking text to worldly interaction, through testimony and social learning that shaped the training corpus. These connections are real, but they aren't the same as a V1 neuron's causal chain from retinal stimulation. The question isn't whether a connection exists but how robust, direct, and information-preserving it is.
+
+Selection history raises parallel questions. The analogy between gradient-based optimization and biological selection is strongest for post-training, where fine-tuning against human preferences explicitly selects for world-involving correctness. It's weaker for pre-training, where next-token prediction selects for distributional accuracy that may only incidentally track worldly features. And it's weaker still for in-context learning, where no parameter updates occur.
+
+\subsection{Cluster kinds and projectibility}
+\label{sec:cluster-mechanisms}
+
+The move I'm proposing is to complement the threshold question (\enquote{Does this system satisfy both conditions?}) with a profile question (\enquote{Along which dimensions, and how stably, are this system's representations anchored to worldly correctness?}). The right tool for this is \term{homeostatic property cluster} (HPC) theory.
+
+Consider the paradigm case. Biological species are HPC kinds: morphological, genetic, and behavioural properties cluster because reproductive isolation and developmental canalization sustain co-occurrence~-- but they don't guarantee it. The payoff is projectibility. Tigers have fur, not feathers; solid bones, not hollow ones; they don't fly. Knowing it's a tiger lets you predict these things~-- not because each property is definitionally necessary, but because the cluster is stable enough to support induction. Ring species and hybrid zones show the cluster fraying at boundaries, and those boundary cases are informative precisely because the mechanisms usually hold things together \citep{boyd_1999_homeostasis}. Groundedness, I'm suggesting, has analogous structure.
+
+An HPC kind is one \enquote{whose definitions are provided not by any set of necessary and sufficient conditions, but instead by a \enquote*{homeostatically} sustained clustering of those properties} \citep[141]{boyd_1999_homeostasis}. What makes HPC kinds scientifically useful~-- and what makes them the right framework for groundedness~-- is their \term{projectibility}: the clustering is reliable enough that knowing a system's position on some dimensions supports predictions about others. This is the central advantage over a binary verdict. A threshold answer tells you whether a system passes. A profile tells you what to expect from it across novel domains and conditions. The move is compatible with deflationary approaches to representation that insist on empirical adequacy over metaphysical inflation \citep{coelho_mollo_2022_deflationary_realism}: groundedness profiles don't require settling the metaphysics of content, only identifying stable, predictive co-occurrence.
+
+Modelling groundedness as an HPC kind requires separating two things that the existing literature tends to run together: the \emph{clustered properties} that characterize robustly grounded systems and the \emph{homeostatic mechanisms} that explain why those properties stably co-occur. The clustered properties are observable features like cross-context referential reliability, patterned misrepresentation (errors that track meaningful worldly distinctions rather than random noise), robustness under domain shift, and stability under correction. Their stable co-occurrence is what makes the profile projectible. The homeostatic mechanisms that explain why these properties travel together are woven into the dimension treatments below.
+
+What makes this clustering projectible rather than coincidental? Counterfactual robustness. A system that happens to produce accurate outputs on a given Tuesday doesn't predict accuracy on Wednesday. A system whose accuracy is sustained by selection history and communicative calibration does, because the conditions that produced accuracy on one occasion are still operating on the next. The test is whether co-occurrence would persist under perturbations that leave the underlying structure intact. Coincidental co-occurrence fails this test; projectible co-occurrence passes it.
+
+Even if the mechanism identifications prove contested, the profile holds at a more conservative level. \textcite{slater_2015_natural_kindness} proposes \term{stable property cluster} (SPC) kinds, which, unlike HPC kinds, require \enquote{only that these properties be sufficiently stably coinstantiated}~-- dropping the requirement that specific homeostatic mechanisms be identified.% Quote from manuscript p. 29 ≈ published p. 403; verify page against typeset BJPS article. At the SPC level, a groundedness profile is already more informative than a binary verdict because it records which dimensions co-vary and which dissociate. Stable co-instantiation alone delivers projectibility: knowing a system's position on some dimensions supports predictions about others, even before we can say why. The HPC claim is stronger (it names the mechanisms); SPC is the conservative floor.%
+\footnote{For a fuller development of SPC-to-HPC escalation criteria applied to embedding clusters, see Reynolds (under review).}
+
+\subsection{The groundedness profile}
+\label{sec:predictions}
+
+Four dimensions characterize the groundedness profile. Each can be assessed independently, and each generates distinctive predictions about when and how a system's representations will succeed or fail. Before spelling out those predictions, the dimensions need enough detail to make the predictions concrete. \textcite[125]{glennan_2017_new_mechanical_philosophy} draws a useful distinction: mechanisms can be \term{etiological} (explaining how a state came to exist) or \term{constitutive} (explaining what currently maintains it). Each dimension below is tagged accordingly.
+
+\term{Teleosemantic selection} is the degree to which selection history has favoured world-tracking states. Models fine-tuned against factuality norms score higher than base models trained purely on next-token prediction. High teleosemantic selection predicts factual reliability that generalizes across domains; low selection predicts accuracy only where distributional patterns happen to align with worldly facts. This is the target paper's central mechanism, and it does real work. It's primarily etiological: training produced these states, but doesn't by itself maintain them under drift.
+
+\term{Causal-informational coupling} is the robustness of causal chains linking internal states to worldly entities. A vision system with direct sensory transduction scores higher here than an LLM accessing the world through text, but the difference is one of degree, not kind, as the target paper itself argues. High coupling predicts reliability even for novel referents with clear causal pathways; low coupling predicts fragility when the text-mediated chain is attenuated (rare entities, novel events). This is primarily constitutive: it concerns the ongoing robustness of causal chains, not their historical production.
+
+\term{Communicative calibration} is the degree to which interactive feedback has anchored usage to shared reference. \textcite{clark_wilkes_gibbs_1986_referring} show that referential success in human communication depends on collaborative processes of proposal, repair, and acceptance. Deployed LLMs increasingly participate in analogous processes through user correction and iterative exchange (Section~\ref{sec:calibration}). High communicative calibration predicts referential reliability gains specifically in corrected domains; low calibration predicts no domain-specific improvement from deployment. This mechanism spans both categories: etiological through inter-generational training effects, constitutive through in-context repair.
+
+\term{Inferential-role structure} is the degree to which internal organization supports correct worldly inferences. Relational grounding can't by itself escape the merry-go-round, as the target paper notes. But it contributes to a groundedness profile when combined with other stabilisers. High inferential-role structure predicts reliable reasoning about entities within the inferential network; without world-linking stabilisers, it remains trapped in the merry-go-round. Like communicative calibration, this has both etiological and constitutive aspects: training produces inferential structure, and architectural constraints maintain it.
+
+These dimensions generate testable predictions. Consider two systems that share a base architecture but differ in their stabilizer regimes: a pre-trained base model and a version of the same model fine-tuned with reinforcement learning from human feedback (RLHF).
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{lll}
+\hline
+\textbf{Dimension} & \textbf{Base model} & \textbf{RLHF model} \\
+\hline
+Teleosemantic selection & Moderate (next-token) & High (factuality feedback) \\
+Causal-informational coupling & Low (text-mediated) & Low (text-mediated) \\
+Communicative calibration & None (no deployment) & High (user corrections) \\
+Inferential-role structure & High & High \\
+\hline
+\end{tabular}
+\caption{Groundedness profiles for two systems sharing a base architecture. The RLHF model gains on two dimensions (teleosemantic selection, communicative calibration) while causal-informational coupling and inferential-role structure remain constant. The profile predicts higher factual reliability for the RLHF model, with a specific failure mode when helpfulness feedback diverges from factuality.}
+\label{tab:profiles}
+\end{table}
+
+The profile predicts that the RLHF model will be more factually reliable but will not have a categorically different referential status (same causal coupling). It also predicts a specific failure mode: where user feedback selects for helpfulness rather than factuality, the teleosemantic mechanism weakens even as communicative calibration stays high. This is testable, and it distinguishes the profile framework from a binary verdict that would classify both systems identically. The co-variation between dimensions isn't accidental~-- the same feedback loops that strengthen teleosemantic selection also drive communicative calibration, which is why models trained with human feedback show both higher factuality benchmarks and more reliable repair behaviour in dialogue.
+
+These dimensions can come apart, and when they do, the dissociations generate specific predictions. A chat model fine-tuned for helpfulness without explicit factuality objectives scores high on communicative calibration but low on teleosemantic selection. A sensor array with no interactive deployment scores high on causal-informational coupling but low on communicative calibration. These are analogous to ring species in biology: boundary cases where the cluster frays because one or more homeostatic mechanisms is absent. They don't undermine the HPC claim. They confirm it. The prediction is that systems with missing mechanisms will be less stable~-- more prone to hallucination, less reliable across domains~-- and that prediction is borne out.
+
+A deeper dissociation cuts across all four mechanisms. Cluster stability is internal: whether the profile is maintained under perturbation. Reference is external: whether the stable cluster tracks worldly states. These are orthogonal. A system can have stable clusters without grounding (an elaborate hallucination pattern that persists across contexts) or referentially anchored representations without stable clusters (corrected through dialogue before the geometry consolidates). The profile keeps these axes separate where a binary verdict collapses them.
+
+\subsection{Normativity and evidence status}
+\label{sec:normativity-evidence}
+
+Does this dissolve normativity? No. Teleosemantic selection remains the source of representational normativity proper. The other mechanisms modulate \emph{how robustly, how broadly, and how reliably} the resulting representations track the world. They don't generate aboutness independently~-- they amplify and stabilize it.
+
+\textcite{millikan_1990_compare_contrast_teleosemantics} identified misrepresentation as the central challenge for naturalistic semantics: a representation must be the kind of thing that can fail if it's to count as representing at all (see also \citealt{neander_2017_mark_of_mental}). The profile framework preserves this. A chatbot fine-tuned for helpfulness can misrepresent worldly facts~-- its outputs about \mention{uranium} may fail to track actual uranium because teleosemantic selection was aimed at helpfulness, not factuality. But it cannot misrepresent inferential relations it was trained on. Normativity is real but mechanism-specific: each mechanism generates correctness conditions relative to the function it stabilizes. Correctness conditions don't vanish in the profile framework. They're distributed across dimensions, and a system can misrepresent along one while performing well along another. This distribution is what makes the profile predictive: a system strong on communicative calibration but weak on teleosemantic selection will be reliable in corrected domains and unreliable in uncorrected ones.
+
+The framework also addresses a pressure that the binary approach handles less gracefully. \textcite{roloff_2025_indispensability_proper_functions} argues that classical selected-effects teleosemantics \enquote{cannot account for evolutionarily novel contents such as `democracy'}~-- the traditional notion of selection history is too narrow for the full range of representational content. The profile approach sidesteps this not by abandoning teleosemantics but by refusing to make it the sole criterion. Novel contents might be stabilized primarily through communicative calibration and inferential-role structure rather than through selection history narrowly conceived. The profile records this rather than forcing a binary verdict.
+
+Finally, it's worth being honest about the evidence status of these mechanism claims. Most are what \textcite[95]{craver_darden_2013_in_search_of_mechanisms} call \term{how-plausibly schemas}: they describe \enquote{how a mechanism might work in a way that is consistent with the known evidence at a given time} but haven't been validated against the full range of interventions. The teleosemantic case for LLM grounding is currently how-plausibly: the analogy between gradient-based optimization and biological selection is compelling but not tested by contrastive intervention evidence. The profile framework converts this epistemic limitation into a research programme. For each mechanism, what predictions would confirm it is operating? What evidence would disconfirm it? The worked comparison above (Table~\ref{tab:profiles}) generates exactly such predictions. How-actually status is what those tests aim at.
+
+\section{Communicative calibration}
+\label{sec:calibration}
+
+\textcite{coelho_mollo_milliere_2026_vector_grounding_problem} identify communicative grounding as a distinct notion but set it aside: it doesn't directly explain how representations hook onto the world. In their elimination argument, communicative grounding is downstream of referential grounding~-- you need representations that refer before you can calibrate shared reference. This is correct as far as it goes. But it doesn't fully capture what communicative calibration contributes.
+
+Communicative calibration is partly a mechanism \emph{within} the teleosemantic story~-- corrective feedback shapes selection history for successor models. But it also operates on a distinct timescale (in-context repair within a conversation) where no parameter updates occur and no selection in the teleosemantic sense takes place. That timescale-specific contribution is what makes it worth distinguishing. In Glennan's terms, the inter-generational timescale is etiological (it shapes the selection history of successor models), while the in-context timescale is constitutive (it maintains referential anchoring within the deployed system's current organization).
+
+\textcite{clark_wilkes_gibbs_1986_referring} show that referential success in human communication isn't a solo achievement. \enquote{In conversation, speakers and addressees work together in the making of a definite reference.} The process involves iterative proposal, repair, and acceptance: \enquote{the participants, if necessary, repair, expand on, or replace the noun phrase in an iterative process until they reach a version they mutually accept} \citep[1]{clark_wilkes_gibbs_1986_referring}. Reference, on this view, isn't established once and then communicated. It's stabilized \emph{through} the communicative process.
+
+This matters for LLMs, though the mechanism operates on two timescales. Within a conversation, a deployed model can be corrected, redirected, and pressed for accuracy~-- but these adjustments are confined to the discourse context and don't alter the model's parameters. The more consequential timescale is inter-generational: human interactions with one generation of models shape the training of the next, through RLHF, curated feedback, and the incorporation of model outputs into future training corpora. Across successive models, the cumulative effect of millions of corrective exchanges pushes the population of models toward more reliable worldly reference. The mechanism isn't identical to face-to-face conversational repair, but the functional structure is analogous~-- iterative feedback stabilizes outputs toward shared worldly targets across cycles of deployment and retraining.
+
+\textcite{putnam_1975_meaning_of_meaning} showed that meaning isn't fully determined within individual speakers. The \term{division of linguistic labour} distributes semantic authority across a community: my use of \mention{elm} is anchored to worldly elm trees partly because the community I belong to includes experts who can distinguish elms from beeches, even if I can't. LLMs don't defer to experts the way speakers do. But they inherit the \emph{results} of expert calibrations embedded in training data, which plays an analogous stabilizing role at the population level. Their training corpora encode the community's accumulated referential calibrations, and deployment feedback continues the process. This doesn't solve the VGP by itself. But it provides a stabilizer that the two-condition framework, focused on individual systems, systematically undercounts. Its predictive payoff is specific: systems whose deployment includes rich corrective feedback should show referential reliability gains in the corrected domains~-- a prediction the binary verdict, which classifies the system as grounded or not regardless of domain, can't generate.
+
+\section{The octopus test revisited}
+\label{sec:octopus}
+
+\textcite{bender_koller_2020_climbing_towards_nlu} argue that \enquote{a system trained only on form has a priori no way to learn meaning} \citep[1]{bender_koller_2020_climbing_towards_nlu}. Their Octopus Test dramatizes the point: a superintelligent octopus intercepts telegraphic messages between two castaways, learns their statistical patterns, and generates plausible responses. The castaways can't tell, but (the intuition says) the octopus doesn't mean anything by its outputs.
+
+The test is effective as an intuition pump. But the verdict it delivers depends on what you hold fixed. The octopus, by construction, has no selection history favouring world-tracking outputs (its goal is undetected substitution, not factual accuracy). It has no communicative calibration (no feedback loop with the castaways). Its causal-informational coupling to the world the castaways inhabit is minimal (it accesses only the form of their messages). And its inferential-role structure, however rich, was shaped entirely by a corpus of two speakers' messages with no worldly grounding of its own.
+
+In profile terms, the octopus scores near zero on every dimension. The profile explains why the intuition is so clear: with no stable clustering, nothing is projectible. The octopus's success in one conversational exchange doesn't predict success in another, because no mechanisms sustain the cluster. But the test is regime-sensitive: change the stabilizer regime and the intuition shifts. Suppose the octopus were trained on messages from thousands of speakers with feedback correcting its errors. Suppose its training explicitly selected for factual accuracy. Suppose it had indirect causal access to the world through the content of messages that systematically track worldly events. At some point the intuitions waver~-- not because we've discovered meaning in the statistics, but because additional stabilizers have entered the picture.
+
+Contemporary LLMs differ from the octopus in exactly these ways. The disanalogies are recognisably \textcite{coelho_mollo_milliere_2026_vector_grounding_problem}'s own conditions doing the work~-- richer causal-informational chains and stronger selection history. The profile framework doesn't dispute this. It asks a further question: how does the system's groundedness profile predict its referential reliability, and which mechanisms explain the pattern? LLMs are trained on corpora reflecting the linguistic activity of a global community, fine-tuned with feedback that selects for worldly accuracy, and deployed in contexts where corrective interaction continues.
+
+There's a further disanalogy the octopus test can't capture: LLMs now act in the world. They generate text that enters public discourse, informs decisions, and becomes part of training data for successor models. Language produced before widespread LLM deployment is something like low-background steel~-- steel manufactured before atmospheric nuclear testing, uncontaminated by a technology that has since altered the background conditions. The analogy is this: just as pre-1945 steel is prized because it lacks the radioactive isotopes that atmospheric testing introduced into all subsequently smelted metal, pre-LLM language data is distinctive because it was produced without any contribution from systems whose outputs now circulate in the same linguistic environment.
+
+This reciprocal shaping is often framed as a problem (data contamination, model collapse). But it's evidence of causal coupling: systems that reshape the linguistic environment they inhabit aren't merely spinning the representational merry-go-round. The octopus, by construction, has no such impact on the world it eavesdrops on.
+
+This doesn't mean LLMs are fully referentially grounded. It means the octopus test, which strips away every stabilizer simultaneously, doesn't generalize to systems where stabilizers are partially present. The test shows what the absence of grounding looks like. It doesn't show that form-based training categorically prevents grounding.
+
+\section{Adjacent accounts}
+\label{sec:adjacent}
+
+The profile framework sits between eliminativist positions (grounding categorically fails for LLMs) and deflationary positions (inferential role is sufficient). Against eliminativists, it insists that partial stabilization is genuine and projectible~-- it supports predictions about system behaviour even when grounding isn't complete. Against deflationists, it insists that inferential structure without referential anchoring remains merry-go-round semantics~-- projectible within the system's own inferential space, perhaps, but not about the world.
+
+At the eliminativist end, \textcite{floridi_jia_tohme_2025_categorical_analysis_llms} argue that LLMs \enquote{do not solve but circumvent the symbol grounding problem} \citep[1]{floridi_jia_tohme_2025_categorical_analysis_llms}, while \textcite{manheim_2026_hall_of_mirrors_peircean} diagnoses a \enquote{hall of mirrors} in which LLMs manipulate signs without indexical grounding in a shared external world. Both identify real limitations. LLMs' causal contact with the world is mediated, and the merry-go-round problem is genuine for systems with low causal-informational coupling. But \enquote{solve versus circumvent} is a binary verdict applied to an HPC kind~-- like asking whether a borderline species is or isn't a natural kind, when the cluster properties come apart at the boundary. A system that achieves partial stabilization through mediated causal chains, selection history, and communicative calibration hasn't circumvented the problem. It has a specific groundedness profile. And Manheim himself argues that no fundamental architectural barrier prevents LLMs from becoming genuine interpretants as they gain persistent memory, extended context, and mediated interactions with reality~-- a trajectory the profile framework can track.
+
+Closer to the profile framework's own position, \textcite{havlik_2023_meaning_understanding_llms} argues that treating LLM performance as \enquote{mere syntactic manipulation} underestimates what these systems achieve \enquote{without sufficient referential grounding in the world} \citep[1]{havlik_2023_meaning_understanding_llms}. \textcite{williams_forthcoming_structural_correspondences_llms} offers a complementary argument: structural correspondences between LLM internal states and worldly features can ground content when they play an appropriate explanatory role in successful task performance. Both positions share the profile framework's resistance to binary verdicts. Where the profile adds specificity is in decomposing \enquote{sufficient referential grounding} into identifiable, independently variable dimensions~-- showing which patterns of co-occurrence are projectible and which structural correspondences are explanatorily active rather than coincidental.
+
+The inferentialist challenge is harder. \textcite{arai_tsugawa_2024_inferentialist_semantics_llms} propose (following Brandom) that LLMs \enquote{exhibit fundamentally anti-representationalist properties} \citep[1]{arai_tsugawa_2024_inferentialist_semantics_llms} better captured by inferential role than by reference to worldly entities. In HPC terms, this amounts to claiming that one property in the cluster~-- inferential-role structure~-- does all the relevant work, making the others epiphenomenal. This challenge has genuine force for a class of terms whose content might be exhausted by inferential relations (logical connectives, perhaps mathematical objects). The profile framework doesn't have a principled way to determine, in advance, where that class ends. But for terms that purport to be \emph{about} contingent worldly features~-- \mention{dog}, \mention{democracy}, \mention{uranium}~-- inferential role without world-linking stabilizers remains trapped in the representational merry-go-round. A system that infers flawlessly about uranium but whose inferences bear no systematic causal relation to actual uranium hasn't grounded the term. It has built an elaborate but unanchored model.
 
 \section{Conclusion}
+\label{sec:conclusion}
 
-TODO: Write conclusion.
+The Vector Grounding Problem is real. It won't dissolve by pointing to LLMs' impressive performance, and \textcite{coelho_mollo_milliere_2026_vector_grounding_problem} are right to take it seriously. They're also right that teleosemantics provides the normative resources the problem demands: correctness conditions require selection history, and selection history is what distinguishes representations from mere correlations.
+
+The disagreement here is about the architecture of the answer, not its foundations. The two-condition framework captures the right things~-- causal-informational relations and selection history~-- but it doesn't decompose the graded structure those conditions already imply, and it doesn't show why that structure is projectible. Referential grounding is a cluster property whose dimensions~-- teleosemantic selection, causal-informational coupling, communicative calibration, and inferential-role structure~-- co-occur stably enough to support prediction. These dimensions can come apart and vary independently. A system's \term{groundedness profile} records where it sits on each, and knowing a system's training regime and deployment context tells you what referential reliability to expect. Heterogeneous mechanisms explain the stability~-- some primarily etiological, others constitutive, and some spanning both.
+
+This reframing has practical consequences. Instead of asking \enquote{Is the VGP solved?} we can ask tractable, empirical questions: To what extent does RLHF stabilize world-directed correctness in fine-tuned models? How much referential anchoring comes through mediated causal chains in training data versus corrective feedback in deployment? Does in-context learning contribute genuine selection pressure or only statistical pattern-matching? These are questions we can investigate. They are the tests that would push current how-plausibly schemas toward how-actually status \citep[95]{craver_darden_2013_in_search_of_mechanisms}, and their answers will sharpen the projectibility that the profile framework already delivers~-- telling us not just that training regime predicts referential reliability, but how precisely and across which domains.
+
+The profile framework sacrifices the two-condition verdict's simplicity. For regulatory questions requiring a threshold answer~-- can this system be trusted as a medical advisor?~-- that simplicity may be pragmatically necessary. What the profile provides instead is predictive precision: when the groundedness cluster frays, we know which dimensions are weak, what failures to expect, and where intervention would help.
+
+We don't need to settle, once and for all, whether vector representations mean anything. We need a framework that generates testable predictions about when and how systems will represent the world reliably~-- and that identifies the mechanisms responsible when they don't. The groundedness profile is a step toward that framework.
 
 \section*{Acknowledgements}
 
@@ -47,6 +194,7 @@ TODO: Write conclusion.
 % Check model names: frontier models change frequently (e.g., GPT-4 → GPT-4o → o3).
 This paper was drafted with the assistance of large language models. All content has been reviewed and revised by the author, who takes full responsibility for the final text.
 
+\newpage
 \printbibliography
 
 \end{document}
