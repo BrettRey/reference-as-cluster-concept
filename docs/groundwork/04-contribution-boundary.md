@@ -1,8 +1,9 @@
 # Contribution Boundary (Reply vs Bridge Paper)
 
 ## This Reply Paper Does
-- Intervenes directly in Coelho Mollo & Millière's framing of the Vector Grounding Problem.
-- Reframes grounding as graded cluster membership with heterogeneous stabilizers.
+- Argues that what the debate calls "referential grounding" is a cluster concept bundling four theoretically distinct relations from different philosophical traditions.
+- Uses the target paper's own concessions (fn 11, p. 8, p. 9) as evidence for this compositionality.
+- Introduces a projectible groundedness profile across the four strands.
 - Preserves their teleosemantic insight while narrowing overreach from elimination claims.
 
 ## This Reply Paper Does Not
