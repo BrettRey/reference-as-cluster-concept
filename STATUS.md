@@ -1,38 +1,40 @@
 # STATUS.md — Vector Grounding Problem Response
 
-## Phase: Pre-drafting
+## Phase: R&R revisions complete (awaiting submission)
 
-The groundwork pack is in place. No prose has been drafted yet.
+Full draft written and revised through two rounds of internal review board feedback.
 
 ## What's Done
 
-- Project scaffolding (house style, Makefile, git, agent docs)
-- Structured abstract (`docs/groundwork/08-structured-abstract.md`)
-- Contribution boundary vs `hpc_to_vector` (`04-contribution-boundary.md`)
-- Definitions sheet with 8 key terms (`03-definitions-sheet.md`) — all TODO for lock
-- Objection matrix with 6 objections and planned responses (`05-objection-matrix.md`)
-- Claim-evidence matrix mapping 6 sections to sources (`06-claim-evidence-matrix.md`)
-- Quote bank (`02-quote-bank.md`) — needs verification pass
-- Citation ledger with 11 entries (`01-citation-ledger.md`) — all TODO for page anchors
-- Source notes for 9 papers (`docs/source-notes/`)
-- Venue candidates identified but not locked (`07-venue-constraints.md`)
-- `references.bib` with 11 entries grounded against local PDFs
+- Full paper drafted: 6,065 words body + 164 words abstract, 15 pages, 2 tables
+- R&R round 1: All 7 major issues + 5 minor issues implemented
+- R&R round 2: 11 further fixes (A-K) from re-reviews
+- Coelho Mollo surname fixed in references.bib (compound surname braces)
+- Clean build (xelatex + biber)
+- "Correlate" language fully purged; \ginfer{} reframed as conditional clustered property
+- "Operationalises" language fully purged; scope declaration stakes metaphysical ground
+- SPC/HPC reframed as floor/ceiling/programme
+- Table split into two (training effects vs deployment effects)
+- Brandomian engagement added in §6
+- Normativity distinction sharpened (representational vs evaluative standards)
 
 ## What's Next
 
-1. **Lock definitions** in `03-definitions-sheet.md`
-2. **Fill citation ledger** — page-level anchors for each claim
-3. **Verify quote bank** — exact pagination before use in drafting
-4. **Lock venue** — pick primary + fallback, get word/citation limits
-5. **Draft Introduction** — using claim-evidence matrix row 1
-6. **Draft remaining sections** — follow the 6-section structure in `06-claim-evidence-matrix.md`
+1. **Fill in acknowledgements** — replace TODO with actual model names used
+2. **Check PhiMiSci double-blind policy** — self-citations may need anonymization
+3. **Verify Floridi et al. (2025) and Manheim (2026) preprint status** — flag if needed
+4. **Final proofread** — /proofread not yet run
+5. **Submit**
 
-## Decisions Pending
+## Key Decisions Made (2026-03-07)
 
-- Target venue (affects word limit, framing emphasis)
-- Whether to include a research-programme section or keep it to a brief paragraph
-- Title (currently placeholder)
+- Title stays: "Reference as a Cluster Concept"
+- Scope: stake metaphysical ground, defend only predictive arm here, cite reynolds2026vectors for full argument
+- \ginfer{}: clustered property with conditional referential contribution (not "correlate")
+- Two tables isolating training vs deployment effects
+- Criterion (a) flagged as heuristic in footnote
+- Ecological niche analogy: no edit needed (R1's concern was a level confusion)
 
 ## Last Updated
 
-2026-03-06 — Initial STATUS.md created.
+2026-03-07 — R&R revisions complete after two review rounds.
