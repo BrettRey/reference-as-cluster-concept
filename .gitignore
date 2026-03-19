@@ -14,5 +14,8 @@
 # Worktrees
 .worktrees/
 
+# Local research material
+literature/
+
 # macOS
 .DS_Store

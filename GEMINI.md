@@ -12,7 +12,7 @@ A reply paper to Coelho Mollo & Milliere (2026) "The Vector Grounding Problem" (
 
 ## Current State
 
-`main.tex` is the template skeleton (all TODOs). No prose drafted yet. The groundwork docs in `docs/groundwork/` are well developed and should be consulted before drafting any section.
+`main.tex` is a complete draft, not a skeleton. The paper has been posted as a PhilArchive preprint (`REYRAA-2`); remaining work is limited to any final external comments, journal-submission preparation, and optional public-metadata cleanup. The groundwork docs in `docs/groundwork/` now function as verification/control documents for the live draft and should still be consulted before substantive edits.
 
 ## Build
 
@@ -22,7 +22,7 @@ make quick        # Single xelatex pass
 make clean        # Remove artifacts, keep PDF
 ```
 
-Requires XeLaTeX (not pdfLaTeX or LuaLaTeX) for Charis SIL font.
+Requires XeLaTeX. The house style uses `EB Garamond` as the main font and `Charis SIL` as an IPA fallback; pdfLaTeX is not supported.
 
 ## Intellectual Architecture
 
@@ -66,20 +66,20 @@ These definitions (from `03-definitions-sheet.md`) must be used consistently:
 
 ## Bibliography
 
-11 entries in `references.bib`, all grounded against local PDFs. The citation ledger (`01-citation-ledger.md`) tracks page-level evidence status. All entries are currently TODO for page anchors.
+`references.bib` currently has 18 entries, with additional local/supporting material in `references-local.bib`. The citation ledger (`01-citation-ledger.md`) tracks the core page-level evidence set and is now populated with page anchors for the tracked sources.
 
 Local PDFs live in `literature/` (project-local) and `../../literature/` (portfolio-level).
 
 ## House Style and Source Grounding
 
-LaTeX conventions, writing style, and source-grounding rules load automatically via `.claude/rules/`. Run `/check-style` after editing `.tex` files. The critical rules for this project:
+LaTeX conventions and typography are defined in `.house-style/preamble.tex` and `.house-style/style-rules.yaml`. The critical rules for this project:
 
 - **Source grounding (LAW):** Read PDFs before citing. No statistics, quotes, or claims from memory.
 - **Rapoport's Rules:** This is a reply paper. Restate Coelho Mollo & Milliere's position charitably before criticizing.
 
 ## Multi-Agent Dispatch
 
-Before dispatching multiple agents, ask Brett which model(s) and whether redundant outputs are wanted. CLI patterns are in `.claude/rules/multi-model-dispatch.md`.
+Before dispatching multiple agents, ask Brett which model(s) and whether redundant outputs are wanted. If no local dispatch playbook is present, treat this as a hard coordination requirement rather than assuming a default workflow.
 
 ## Git
 

@@ -1,55 +1,43 @@
 # STATUS.md — Vector Grounding Problem Response
 
-## Phase: Awaiting external comments before preprint
+## Phase: Preprint posted
 
-Full draft written and revised through two rounds of internal review board feedback.
+Major revision complete. Dimitri Coelho Mollo's feedback addressed. Three rounds of internal review board passed (all Accept/Accept minor). Housekeeping blockers were cleared and the paper is now live on PhilArchive: `https://philarchive.org/rec/REYRAA-2` (archival date `2026-03-19`). Geoff has the revised draft; Ryan comments are still optional input rather than a blocker. Remaining work is submission prep and any metadata cleanup, not preprint prep.
 
 ## What's Done
 
-- Full paper drafted: 6,065 words body + 164 words abstract, 15 pages, 2 tables
-- R&R round 1: All 7 major issues + 5 minor issues implemented
-- R&R round 2: 11 further fixes (A-K) from re-reviews
-- Coelho Mollo surname fixed in references.bib (compound surname braces)
-- Clean build (xelatex + biber)
-- "Correlate" language fully purged; \ginfer{} reframed as conditional clustered property
-- "Operationalises" language fully purged; scope declaration stakes metaphysical ground
-- SPC/HPC reframed as floor/ceiling/programme
-- Table split into two (training effects vs deployment effects), then merged into single 3-column table with shared RLHF pivot
-- Brandomian engagement added in §6
-- Normativity distinction sharpened (representational vs evaluative standards)
-- Both-extremes falsification condition added (no co-variation = checklist; perfect co-variation = binary verdict)
-- Closing paragraph rewritten (correctio eliminated)
-- Normativity attributed to shared framework, not asserted freestanding
-- Bib provenance notes stripped; only substantive publication-status notes remain
-- Acknowledgements filled in (Opus 4.6 & Codex 5.4)
+- Full paper: ~7,650 words body, 18 pages, 1 table
+- Dimitri's three points addressed: thin/thick distinction (§3.5), gcausal reframed (§3.3), gcomm as scope expansion not correction
+- Three rounds of internal review board (R1→R3: 4 R&Rs → 5 Accepts)
+- New material: asymmetric spillover prediction, prediction market test case (with Hayek and herding citations), sycophancy as conflict of targets, multimodal/retrieval second worked case, pipeline-audit subsection, concrete falsification conditions
+- Mechanistic evidence: Wang et al. 2025 (activation patching for sycophancy), Qi et al. 2025 and Arditi et al. 2024 (shallow alignment, scoped to safety routing)
+- HPC permissivity: Magnus 2014 and Craver 2009 engaged
+- "Successor models" replaced with multi-channel cultural inheritance
+- Etiological/constitutive distinction carried through all strands, octopus, prediction market, conclusion
+- Model/system distinction enforced; Table footnote added
+- Octopus section tightened (agentic digression cut, regime-sensitivity sharpened)
+- "At least four" signals open taxonomy
+- Oxford spelling, contractions, en-dashes (Bringhurst), confabulation not hallucination
+- 8+ new bib entries in references-local.bib
+- 5 interpretability PDFs downloaded and converted to markdown
+- Proofread pass complete
+- Clean build (xelatex + biber), all citations resolving
+- Abstract trimmed to venue-compliant length
+- Core citation ledger and claim/objection matrices updated with page anchors and addressed statuses
+- Boyd, Clark \& Wilkes-Gibbs, and Roloff verification pass completed against local PDFs
+- PhiMiSci submission constraints checked against `docs/groundwork/07-venue-constraints.md`
+- Preprint/publication statuses reflected in bibliography metadata: Floridi et al. as arXiv preprint, Manheim as published in *Philosophy \& Technology*
+- PhilArchive preprint posted: `REYRAA-2`
+- Current PhilArchive categories: `Computational Semantics`, `Representation in Connectionism`, `Semantics, Misc`
+- Current PhilArchive keywords: `Vector Grounding Problem`, `large language models`, `teleosemantics`, `referential grounding`, `extra-linguistic reference`, `groundedness profiles`, `communicative calibration`, `homeostatic property clusters`
 
 ## What's Next
 
-1. **Wait for comments** from Dimitri Coelho Mollo, Geoff, and Ryan (emailed 2026-03-08; follow up ~March 22)
-2. **Check PhiMiSci double-blind policy** — self-citations may need anonymization
-3. **Verify Floridi et al. (2025) and Manheim (2026) preprint status** — flag if needed
-4. **Final proofread** — /proofread not yet run
-5. **Post preprint and submit**
-
-## Key Decisions Made (2026-03-07)
-
-- Title stays: "Reference as a Cluster Concept"
-- Scope: stake metaphysical ground, defend only predictive arm here, cite reynolds2026vectors for full argument
-- \ginfer{}: clustered property with conditional referential contribution (not "correlate")
-- Two tables isolating training vs deployment effects
-- Criterion (a) flagged as heuristic in footnote
-- Ecological niche analogy: no edit needed (R1's concern was a level confusion)
-
-### 2026-03-08 Session Notes
-- Deep polish pass: ~35 micro-edits driven by Brett reading PDF
-- Merged two tables into single 3-column table with shared RLHF pivot column
-- Added both-extremes falsification condition
-- Rewrote closing paragraph (eliminated correctio)
-- Attributed normativity to shared framework
-- Stripped bib provenance notes
-- Emailed Dimitri Coelho Mollo (dimitri.mollo@umu.se), Geoff, and Ryan for comments
-- Waiting for responses before preprint
+1. **Prepare anonymized submission file** — keep self-citations and acknowledgements out of the journal-submission version as needed
+2. **Wait for Geoff and Ryan comments** (Geoff sent revised draft 2026-03-19; Ryan pending)
+3. **Choose active submission venue**
+4. **Submit to venue**
 
 ## Last Updated
 
-2026-03-08 — Polish pass complete; awaiting external comments.
+2026-03-19 — Preprint posted to PhilArchive; project phase moved to submission prep.
