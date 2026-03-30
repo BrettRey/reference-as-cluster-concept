@@ -34,3 +34,10 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 - **PhilArchive posting completed.** Public preprint posted as `REYRAA-2`; project phase shifts from preprint housekeeping to submission prep.
 - **Public metadata fixed at posting.** Current PhilArchive categories are `Computational Semantics`, `Representation in Connectionism`, and `Semantics, Misc`; keywords reflect the paper's VGP/teleosemantics/groundedness-profile framing.
+
+## 2026-03-30
+
+- **Wang & Bedny (2026) added to §3.1.** Congenital blindness as a third human dissociation case (after uranium and Brexit). Rich g_infer + g_comm with zero personal g_causal for visual domain. Stronger than the uranium case because it's empirically grounded rather than a thought experiment.
+- **Arora et al. (2026) added to §3.2.** World-knowledge retrieval (multi-hop capital reasoning) is sparse, localisable, and steerable at the neuron level. Framed specifically around g_causal intervention, not as a generic sparsity finding. Bridge sentence ties it back to Wang et al. sycophancy finding before the spillover prediction paragraph.
+- **Huh et al. (2024) Platonic Representation Hypothesis dropped.** Adjacent but not load-bearing. Representational convergence isn't a grounding claim; including it would draft the PRH into service for something it doesn't directly support.
+- **Lupyan podcast not cited.** Not peer-reviewed. Bedny covers the same empirical ground.

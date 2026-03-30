@@ -31,6 +31,10 @@ Major revision complete. Dimitri Coelho Mollo's feedback addressed. Three rounds
 - Current PhilArchive categories: `Computational Semantics`, `Representation in Connectionism`, `Semantics, Misc`
 - Current PhilArchive keywords: `Vector Grounding Problem`, `large language models`, `teleosemantics`, `referential grounding`, `extra-linguistic reference`, `groundedness profiles`, `communicative calibration`, `homeostatic property clusters`
 
+## Note: Aryaman Arora (2026) on sparse circuits
+
+Arora et al. (2026) "Language model circuits are sparse in the neuron basis" (arXiv:2601.22594) finds that ~100 MLP neurons control subject-verb agreement behaviour, and these are causally manipulable via gradient-based attribution. This strengthens the mechanistic evidence line alongside Wang et al. (2025) and Qi et al. (2025): grammatical structure in LMs is sparse, localisable, and causally active, not distributed noise. Consider citing in the next revision if the mechanistic evidence section is revisited.
+
 ## What's Next
 
 1. **Prepare anonymized submission file** — keep self-citations and acknowledgements out of the journal-submission version as needed
@@ -41,3 +45,9 @@ Major revision complete. Dimitri Coelho Mollo's feedback addressed. Three rounds
 ## Last Updated
 
 2026-03-19 — Preprint posted to PhilArchive; project phase moved to submission prep.
+2026-03-30 — Journal submission version: added Wang & Bedny (2026) to §3.1 and Arora et al. (2026) to §3.2. Dropped Huh et al. (PRH) and Lupyan podcast.
+
+### Literature: Many Minds podcast (Frank & Lupyan, 2026-03-26)
+- **Symbol grounding problem:** Lupyan argues grounding is "a matter of degree rather than kind" — aligns with your graded cluster property framework. Bedny lab (congenital blindness + LLMs, Annual Reviews of Linguistics) as evidence for grounding-without-embodiment. Lupyan: "LLMs have shifted my own personal view... downgrade the importance of sensory input."
+- **Platonic Representation Hypothesis:** Different learners converge to same representations. Adjacent to your argument.
+- See `literature/many-minds-frank-lupyan-2026.md` for full notes + transcript.
